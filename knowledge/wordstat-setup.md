@@ -157,9 +157,9 @@
 
 **Если работаешь в приложении Claude для компьютера:**
 
-1. Вставь команду — она добавит сервер в настройки приложения Claude и не сотрёт то, что там уже есть:
+1. Вставь команду — она добавит сервер в настройки приложения Claude, сохранив остальные подключения. Совпадающий `yandex-ads` переиспользуется; если это имя уже занято другой конфигурацией, команда остановится без записи. Сначала выясни, какой сервер используется; рабочее подключение не заменяй молча:
 
-        ~/yandex-ads-mcp/venv/bin/python -c "import json,os,pathlib; p=pathlib.Path(os.path.expanduser('~/Library/Application Support/Claude/claude_desktop_config.json')); p.parent.mkdir(parents=True,exist_ok=True); d=json.loads(p.read_text() or '{}') if p.exists() else {}; d.setdefault('mcpServers',{})['yandex-ads']={'command':os.path.expanduser('~/yandex-ads-mcp/run.sh')}; p.write_text(json.dumps(d,indent=2,ensure_ascii=False)); print('конфиг записан:', p)"
+        ~/yandex-ads-mcp/venv/bin/python -c "import json,os,pathlib,sys; p=pathlib.Path(os.path.expanduser('~/Library/Application Support/Claude/claude_desktop_config.json')); p.parent.mkdir(parents=True,exist_ok=True); d=json.loads(p.read_text() or '{}') if p.exists() else {}; servers=d.setdefault('mcpServers',{}); desired={'command':os.path.expanduser('~/yandex-ads-mcp/run.sh')}; existing=servers.get('yandex-ads'); 'yandex-ads' not in servers or existing==desired or sys.exit('Имя yandex-ads уже занято: настройки сохранены без изменений; сначала проверь действующее подключение.'); servers['yandex-ads']=desired; p.write_text(json.dumps(d,indent=2,ensure_ascii=False)); print('конфиг записан:', p)"
 
 2. Полностью закрой Claude: Cmd+Q. Просто закрыть окно мало — сервер подхватывается только при запуске приложения.
 3. Открой Claude заново.
