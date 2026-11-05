@@ -1,0 +1,81 @@
+{
+  "dependencies": [
+    {
+      "name": "prompt-audience-research",
+      "url": "https://github.com/BermanRoman/prompt-audience-research.git",
+      "revision": "375c633fe7bfab7dda333824ea03a44f30debcb4",
+      "files": [
+        "AGENTS.md",
+        "audience-research.md",
+        "evidence-contract.md",
+        "workflow.md",
+        "integrations/gkkd.md",
+        "references/01-segment.md",
+        "references/02-portrait.md",
+        "references/03-custdev.md",
+        "references/04-meanings.md",
+        "references/05-offer.md",
+        "references/06-landing.md",
+        "roles/research-reviewer.md"
+      ],
+      "purpose": "Pinned local methodology: audience.",
+      "routes": [
+        "audience"
+      ]
+    },
+    {
+      "name": "promt-hvco",
+      "url": "https://github.com/BermanRoman/promt-hvco.git",
+      "revision": "e317bca59eb85f7085357ae368609e406d17e00e",
+      "files": [
+        "AGENTS.md",
+        "hvco.md",
+        "input-contract.md",
+        "workflow.md",
+        "references/methodology.md",
+        "references/format.md",
+        "roles/integrity-editor.md",
+        "roles/target-reader.md"
+      ],
+      "purpose": "Pinned local methodology: hvco.",
+      "routes": [
+        "hvco"
+      ]
+    },
+    {
+      "name": "prompt-clip-landing",
+      "url": "https://github.com/BermanRoman/prompt-clip-landing.git",
+      "revision": "ea7b85ddc20197721312171089352ca72368c921",
+      "files": [
+        "AGENTS.md",
+        "clip-landing.md",
+        "input-contract.md",
+        "workflow.md",
+        "references/methodology.md",
+        "references/format.md",
+        "roles/editor.md",
+        "roles/target-reader.md"
+      ],
+      "purpose": "Pinned local methodology: clip.",
+      "routes": [
+        "clip"
+      ]
+    },
+    {
+      "name": "promt-copywriting",
+      "url": "https://github.com/BermanRoman/promt-copywriting.git",
+      "revision": "bb091b6003f836106d09ed2bd5e91a8fb5d961dd",
+      "files": [
+        "AGENTS.md",
+        "methodology-copywriting.md",
+        "methodology-listening.md"
+      ],
+      "purpose": "Pinned local methodology: copywriting.",
+      "routes": [
+        "copywriting",
+        "hvco",
+        "clip"
+      ]
+    }
+  ]
+}

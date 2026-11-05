@@ -6,9 +6,13 @@
 progress.md
 analysis/*
 !analysis/rbh/
-tests/
+/tests/*
+!/tests/test_tools.py
 _to_delete/
 
 # Проекты экспертов: личные данные, в репозиторий не идут
 projects/
 .DS_Store
+runs/
+__pycache__/
+*.pyc

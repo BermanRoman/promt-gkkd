@@ -5,11 +5,12 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 import re
 import sys
+import unicodedata
 
 ROOT = Path(__file__).resolve().parents[1]
 FILES = sorted(
     list(ROOT.glob('*.md'))
-    + [p for folder in ('agents', 'core', 'knowledge', 'library')
+    + [p for folder in ('agents', 'core', 'knowledge', 'library', 'integrations', 'docs', 'scripts')
        for p in (ROOT / folder).rglob('*.md')]
 )
 errors = []
@@ -18,7 +19,9 @@ names = {}
 for path in FILES:
     text = path.read_text(encoding='utf-8')
     rel = path.relative_to(ROOT)
-    for match in re.finditer(r'`((?:agents|core|knowledge|library)/[^`\n]+\.md)`', text):
+    if any(unicodedata.category(char) == 'Cf' for char in text):
+        errors.append(f'{rel}: hidden Unicode format character')
+    for match in re.finditer(r'`((?:agents|core|knowledge|library|integrations|docs)/[^`\n]+\.md)`', text):
         target = match.group(1)
         if any(c in target for c in ('*', '<', '>', '…')):
             continue
