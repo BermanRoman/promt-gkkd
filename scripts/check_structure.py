@@ -10,7 +10,7 @@ import unicodedata
 ROOT = Path(__file__).resolve().parents[1]
 FILES = sorted(
     list(ROOT.glob('*.md'))
-    + [p for folder in ('agents', 'core', 'knowledge', 'library', 'integrations', 'docs', 'scripts')
+    + [p for folder in ('agents', 'teams', 'core', 'knowledge', 'library', 'integrations', 'docs', 'scripts')
        for p in (ROOT / folder).rglob('*.md')]
 )
 errors = []
@@ -21,7 +21,7 @@ for path in FILES:
     rel = path.relative_to(ROOT)
     if any(unicodedata.category(char) == 'Cf' for char in text):
         errors.append(f'{rel}: hidden Unicode format character')
-    for match in re.finditer(r'`((?:agents|core|knowledge|library|integrations|docs)/[^`\n]+\.md)`', text):
+    for match in re.finditer(r'`((?:agents|teams|core|knowledge|library|integrations|docs)/[^`\n]+\.md)`', text):
         target = match.group(1)
         if any(c in target for c in ('*', '<', '>', '…')):
             continue
@@ -42,7 +42,7 @@ for path in FILES:
         if not (path.parent / target_path).exists():
             line = text.count('\n', 0, match.start()) + 1
             errors.append(f'{rel}:{line}: missing Markdown target {target}')
-    if path.parent.name == 'agents':
+    if path.parent.name in ('agents', 'teams'):
         header = re.match(r'\A---\n(.*?)\n---\n', text, re.S)
         if not header:
             errors.append(f'{rel}: missing frontmatter')
