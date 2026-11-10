@@ -26,7 +26,7 @@
     {
       "name": "promt-hvco",
       "url": "https://github.com/BermanRoman/promt-hvco.git",
-      "revision": "e317bca59eb85f7085357ae368609e406d17e00e",
+      "revision": "3df30c7e6c4d43a08f2d20368d37ce05b227143a",
       "files": [
         "AGENTS.md",
         "hvco.md",
