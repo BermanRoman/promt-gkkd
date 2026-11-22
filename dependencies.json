@@ -26,7 +26,7 @@
     {
       "name": "promt-hvco",
       "url": "https://github.com/BermanRoman/promt-hvco.git",
-      "revision": "3df30c7e6c4d43a08f2d20368d37ce05b227143a",
+      "revision": "6c6e2a69059947217e69691e057fe018917b8ed9",
       "files": [
         "AGENTS.md",
         "hvco.md",
@@ -64,7 +64,7 @@
     {
       "name": "promt-copywriting",
       "url": "https://github.com/BermanRoman/promt-copywriting.git",
-      "revision": "bb091b6003f836106d09ed2bd5e91a8fb5d961dd",
+      "revision": "55c1284b0f6aed87c11ec2fd0cd79bb7861ec96a",
       "files": [
         "AGENTS.md",
         "methodology-copywriting.md",
